@@ -1,7 +1,14 @@
+import TextInput from "../Data Components/TextInput";
+import AgeInput from "../Data Components/AgeInput";
+
 const Form = (props) => {
   return (
     <div>
-      <form>{props.children}</form>
+      <form>
+        <TextInput></TextInput>
+        <AgeInput></AgeInput>
+        {props.children}
+      </form>
     </div>
   );
 };
