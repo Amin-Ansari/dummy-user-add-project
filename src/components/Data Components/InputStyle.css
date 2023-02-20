@@ -1,0 +1,22 @@
+label,
+input,
+label,
+.input-style,
+.label-style {
+  width: 100%;
+  display: block;
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+.input-styles {
+  width: 100%;
+  display: inline-block;
+  margin: 12px 0px;
+  padding: 6px 5px;
+  border: 2px solid #d4d3d3;
+  font-weight: 400;
+  font-size: 1.1rem;
+}
+.input-styles:focus {
+  outline: none;
+}
