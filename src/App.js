@@ -6,6 +6,7 @@ import Form from "./components/UI Components/Form";
 import AgeInput from "./components/Data Components/AgeInput";
 import ItemsList from "./components/UI Components/ItemsList";
 import ListItem from "./components/Data Components/ListItem";
+import AddUserButton from "./components/Data Components/AddUserButton";
 import { useState } from "react";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Form>
             <TextInput></TextInput>
             <AgeInput></AgeInput>
+            <AddUserButton></AddUserButton>
           </Form>
         </SectionWrapper>
         <SectionWrapper>

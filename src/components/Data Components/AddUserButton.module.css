@@ -1,0 +1,11 @@
+.button-container {
+}
+.button-style {
+  display: block;
+  padding: 7px 13px;
+  background-color: #4b0b56;
+  color: #fff;
+  border: none;
+  outline: none;
+  font-size: 1.01rem;
+}
