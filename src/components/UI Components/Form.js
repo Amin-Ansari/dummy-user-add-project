@@ -14,11 +14,21 @@ const Form = (props) => {
   const takeAge = (inputAge) => {
     updateAge(inputAge);
   };
+  const messageContext = () => {
+    // This function will return a message based on a certain condition
+    if (!userNameCondition) {
+      return "Username can't be empty";
+    } else if (!userAgeCondition) {
+      return "User age can't be empty";
+    } else if (!validNumber) {
+      return "The value which you've entered as user's age is not a valid (number)!";
+    }
+  };
   const formSubmission = (formEvent) => {
     formEvent.preventDefault();
     userName == ""
-      ? updateUserAgeCondition(false)
-      : updateUserAgeCondition(true);
+      ? updateUserNameCondition(false)
+      : updateUserNameCondition(true);
     if (!userAge) {
       updateUserAgeCondition(false);
     } else {
@@ -33,6 +43,7 @@ const Form = (props) => {
       ? updateVisibility(false)
       : updateVisibility(true);
     !boxVisibility && props.onUpdate(userName, userAge);
+    props.onTakingMessage(messageContext());
     updateUserName("");
     updateAge("");
   };

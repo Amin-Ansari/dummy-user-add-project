@@ -5,10 +5,12 @@ import Form from "./components/UI Components/Form";
 import ItemsList from "./components/UI Components/ItemsList";
 import ListItem from "./components/Data Components/ListItem";
 import AddUserButton from "./components/Data Components/AddUserButton";
+import ModalBox from "./components/Data Components/ModalBox";
 import { useState } from "react";
 
 function App() {
   const [userList, updateList] = useState([]);
+  const [modalMessage, updateMessage] = useState("");
   const updateUserList = (passedName, passedAge) => {
     updateList((prevValues) => {
       const prevList = [...prevValues];
@@ -16,11 +18,16 @@ function App() {
       return [...prevList];
     });
   };
+  const setTheBoxMessage = (passedMessage) => {
+    updateMessage(passedMessage);
+    console.log(passedMessage);
+  };
   return (
     <div className="App">
+      <ModalBox></ModalBox>
       <Appwrapepr>
         <SectionWrapper>
-          <Form onUpdate={updateUserList}>
+          <Form onUpdate={updateUserList} onTakingMessage={setTheBoxMessage}>
             <AddUserButton></AddUserButton>
           </Form>
         </SectionWrapper>
