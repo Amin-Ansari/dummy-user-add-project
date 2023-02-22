@@ -22,6 +22,8 @@ const Form = (props) => {
       return "User age can't be empty";
     } else if (!validNumber) {
       return "The value which you've entered as user's age is not a valid (number)!";
+    } else {
+      return "All is good";
     }
   };
   const formSubmission = (formEvent) => {
@@ -42,7 +44,8 @@ const Form = (props) => {
     userNameCondition && userAgeCondition && validNumber
       ? updateVisibility(false)
       : updateVisibility(true);
-    !boxVisibility && props.onUpdate(userName, userAge);
+    if (userName && userAge) props.onUpdate(userName, userAge);
+    console.log(messageContext());
     props.onTakingMessage(messageContext());
     updateUserName("");
     updateAge("");
