@@ -9,11 +9,18 @@ import { useState } from "react";
 
 function App() {
   const [userList, updateList] = useState([]);
+  const updateUserList = (passedName, passedAge) => {
+    updateList((prevValues) => {
+      const prevList = [...prevValues];
+      prevList.push({ userName: passedName, userAge: passedAge });
+      return [...prevList];
+    });
+  };
   return (
     <div className="App">
       <Appwrapepr>
         <SectionWrapper>
-          <Form>
+          <Form onUpdate={updateUserList}>
             <AddUserButton></AddUserButton>
           </Form>
         </SectionWrapper>

@@ -13,7 +13,6 @@ const Form = (props) => {
   const formSubmission = (formEvent) => {
     formEvent.preventDefault();
     userName == "" ? alert("Username can't be empty") : alert(userName);
-    updateUserName("");
     if (!userAge) {
       alert("User age can't be empty");
     } else {
@@ -23,6 +22,8 @@ const Form = (props) => {
         alert("The passed data as user's age is not a valid (number)!");
       }
     }
+    props.onUpdate(userName, userAge);
+    updateUserName("");
     updateAge("");
   };
   return (
