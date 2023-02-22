@@ -4,6 +4,10 @@ import { useState } from "react";
 const Form = (props) => {
   const [userName, updateUserName] = useState("");
   const [userAge, updateAge] = useState("");
+  const [userNameCondition, updateUserNameCondition] = useState(true);
+  const [userAgeCondition, updateUserAgeCondition] = useState(true);
+  const [validNumber, updatValidNumber] = useState(true);
+  const [boxVisibility, updateVisibility] = useState(false);
   const takeData = (inputsData) => {
     updateUserName(inputsData);
   };
@@ -12,17 +16,23 @@ const Form = (props) => {
   };
   const formSubmission = (formEvent) => {
     formEvent.preventDefault();
-    userName == "" ? alert("Username can't be empty") : alert(userName);
+    userName == ""
+      ? updateUserAgeCondition(false)
+      : updateUserAgeCondition(true);
     if (!userAge) {
-      alert("User age can't be empty");
+      updateUserAgeCondition(false);
     } else {
+      updateUserAgeCondition(true);
       if (typeof userAge === "number") {
-        alert(userAge);
+        updatValidNumber(true);
       } else {
-        alert("The passed data as user's age is not a valid (number)!");
+        updatValidNumber(false);
       }
     }
-    props.onUpdate(userName, userAge);
+    userNameCondition && userAgeCondition && validNumber
+      ? updateVisibility(false)
+      : updateVisibility(true);
+    !boxVisibility && props.onUpdate(userName, userAge);
     updateUserName("");
     updateAge("");
   };
