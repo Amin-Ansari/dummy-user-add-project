@@ -10,7 +10,7 @@ import { useState } from "react";
 
 function App() {
   const [userList, updateList] = useState([]);
-  const [modalMessage, updateMessage] = useState("");
+  const [modalContent, updateContent] = useState("");
   const updateUserList = (passedName, passedAge) => {
     updateList((prevValues) => {
       const prevList = [...prevValues];
@@ -19,12 +19,17 @@ function App() {
     });
   };
   const setTheBoxMessage = (passedMessage) => {
-    updateMessage(passedMessage);
-    console.log(passedMessage);
+    updateContent(passedMessage);
+  };
+  const clearContent = (newContent) => {
+    updateContent(newContent);
   };
   return (
     <div className="App">
-      <ModalBox></ModalBox>
+      <ModalBox
+        content={modalContent}
+        onMessageFeedback={clearContent}
+      ></ModalBox>
       <Appwrapepr>
         <SectionWrapper>
           <Form onUpdate={updateUserList} onTakingMessage={setTheBoxMessage}>
