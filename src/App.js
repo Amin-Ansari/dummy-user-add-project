@@ -7,6 +7,7 @@ import ListItem from "./components/Data Components/ListItem";
 import AddUserButton from "./components/Data Components/AddUserButton";
 import ModalBox from "./components/Data Components/ModalBox";
 import { useState } from "react";
+import React from "react";
 
 function App() {
   const [userList, updateList] = useState([]);
@@ -25,7 +26,7 @@ function App() {
     updateContent(newContent);
   };
   return (
-    <div className="App">
+    <React.Fragment className="App">
       <ModalBox
         content={modalContent}
         onMessageFeedback={clearContent}
@@ -48,7 +49,7 @@ function App() {
           </ItemsList>
         </SectionWrapper>
       </Appwrapepr>
-    </div>
+    </React.Fragment>
   );
 }
 

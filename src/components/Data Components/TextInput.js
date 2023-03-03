@@ -1,11 +1,11 @@
 import "./InputStyle.css";
-
+import Wrapper from "../Helpers/Wrapper";
 const TextInput = (props) => {
   const liftTextToForm = (eventObject) => {
     props.onTakingData(eventObject.target.value);
   };
   return (
-    <div>
+    <Wrapper>
       <label className="label-style">
         Username
         <input
@@ -15,7 +15,7 @@ const TextInput = (props) => {
           value={props.value}
         ></input>
       </label>
-    </div>
+    </Wrapper>
   );
 };
 
