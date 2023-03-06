@@ -8,6 +8,7 @@ import AddUserButton from "./components/Data Components/AddUserButton";
 import ModalBox from "./components/Data Components/ModalBox";
 import { useState } from "react";
 import React from "react";
+import ReactDOM from "react-dom";
 
 function App() {
   const [userList, updateList] = useState([]);
@@ -26,11 +27,14 @@ function App() {
     updateContent(newContent);
   };
   return (
-    <React.Fragment className="App">
-      <ModalBox
-        content={modalContent}
-        onMessageFeedback={clearContent}
-      ></ModalBox>
+    <React.Fragment>
+      {ReactDOM.createPortal(
+        <ModalBox
+          content={modalContent}
+          onMessageFeedback={setTheBoxMessage}
+        />,
+        document.getElementById("error-modal")
+      )}
       <Appwrapepr>
         <SectionWrapper>
           <Form onUpdate={updateUserList} onTakingMessage={setTheBoxMessage}>
