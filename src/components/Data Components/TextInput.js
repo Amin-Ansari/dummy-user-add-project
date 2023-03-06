@@ -1,8 +1,12 @@
 import "./InputStyle.css";
 import Wrapper from "../Helpers/Wrapper";
+import { useRef } from "react";
+
 const TextInput = (props) => {
+  const inputElement = useRef();
   const liftTextToForm = (eventObject) => {
-    props.onTakingData(eventObject.target.value);
+    props.onTakingData(inputElement.current.value);
+    console.log(inputElement.current.value);
   };
   return (
     <Wrapper>
@@ -13,6 +17,7 @@ const TextInput = (props) => {
           className={"input-styles"}
           onChange={liftTextToForm}
           value={props.value}
+          ref={inputElement}
         ></input>
       </label>
     </Wrapper>

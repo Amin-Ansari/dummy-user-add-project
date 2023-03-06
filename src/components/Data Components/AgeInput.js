@@ -1,8 +1,10 @@
 import "./InputStyle.css";
+import { useRef } from "react";
 
 const AgeInput = (props) => {
+  const inputElement = useRef();
   const liftUpAge = (eventObject) => {
-    props.onTakingData(Number(eventObject.target.value));
+    props.onTakingData(Number(inputElement.current.value));
   };
   return (
     <div>
@@ -15,6 +17,7 @@ const AgeInput = (props) => {
           className={"input-styles"}
           onChange={liftUpAge}
           value={props.value}
+          ref={inputElement}
         ></input>
       </label>
     </div>
